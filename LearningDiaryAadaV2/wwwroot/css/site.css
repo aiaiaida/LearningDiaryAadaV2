@@ -1,13 +1,14 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
+/*
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
-}
+}*/
 
 /* Provide sufficient contrast against white background */
+/*
 a {
   color: #0366d6;
 }
@@ -26,6 +27,7 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
+/*
 html {
   font-size: 14px;
 }
@@ -53,6 +55,7 @@ button.accept-policy {
 
 /* Sticky footer styles
 -------------------------------------------------- */
+/*
 html {
   position: relative;
   min-height: 100%;
@@ -60,6 +63,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
+/*
   margin-bottom: 60px;
 }
 .footer {
@@ -68,4 +72,305 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+/*
+}*/
+
+/* -----------------------------------------------------------------my own code*/
+
+:root {
+    --primary-color: #84ADA6;
+    --secondary-color: #a99e83;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--primary-color);
+    margin: 0;
+}
+
+.navbar {
+    padding: 0.5em;
+    background-color: white;
+}
+
+    .navbar .logo {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: x-large;
+        margin-left: 6em;
+        border-radius: 12px;
+    }
+
+span {
+    color: var(--secondary-color);
+}
+
+.navbar .container {
+    display: flex;
+    place-content: space-between;
+    margin: 0;
+    font-weight: 600;
+}
+
+.navbar .primary-nav {
+    list-style-type: none;
+    margin: 0;
+    margin-right: -10em;
+    padding: 0;
+}
+
+.primary-nav li {
+    display: inline;
+    margin: 1em;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+section {
+    padding: 3em 2em; /*top and bottom & left and right*/
+}
+
+.hero {
+    text-align: left;
+    margin: 5em 0em 7em 3em;
+}
+
+.container {
+    margin: 0 0 9em 6em;
+}
+.main-content {
+    display: flex;
+}
+
+    .main-content img {
+        width: 50%;
+    }
+
+.left-col {
+    margin: 2em 2em 0 4em;
+    color: white;
+    padding-right: 0em;
+}
+
+h1 {
+    font-size: 2.5em;
+    line-height: 1.3em;
+    margin-top: 0;
+}
+
+.subhead {
+    font-weight: bold;
+    letter-spacing: .3em;
+    margin: 0;
+    display: inline;
+}
+
+.left-col p {
+    max-width: 500px;
+}
+
+.hero-cta {
+    padding-top: 0.6em;
+}
+
+.start-cta {
+    background: white;
+    color: var(--secondary-color);
+    padding: .3em .5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: .4em;
+}
+
+.manual-cta {
+    color: white;
+}
+
+.hero-cta i {
+    margin-left: 1em;
+    margin-right: .2em;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* main page ends here*/
+
+.app {
+    display: grid;
+    grid-template-columns: 300px .98fr;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    margin-bottom: 5em;
+}
+
+.sidebar {
+    margin-left: 5em;
+    margin-top:3em;
+}
+
+.header {
+    color: white;
+    padding: 1.5rem;
+    position: sticky;
+    top: 0;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* sidebar list*/
+.sidebar-list {
+    padding: 1.5rem;
+}
+
+.sidebar-item {
+    list-style: none;
+    align-items: center;
+    width: 100%;
+    margin: 16px 0;
+
+    background: white;
+    color: var(--secondary-color);
+    padding: .3em .5em;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: .4em;
+}
+
+    .sidebar-item.active {
+        font-weight: bold;
+    }
+
+    .sidebar-item:first-child {
+        margin-top: 0;
+    }
+
+/* main */
+.main {
+    background-color: white;
+    overflow-y: scroll;
+    margin-top:3em;
+}
+
+    .main::-webkit-scrollbar {
+        display: none;
+    }
+
+    .main .header {
+        background: white;
+        color: var(--primary-color);
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+.currently-viewing {
+    font-size: 1rem;
+}
+
+/* cards*/
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-rows: max-content;
+    gap: 20px;
+    padding: 1.3rem;
+}
+
+.card {
+    background-color: #fff;
+    border-top: 6px solid;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.detail-cta {
+    color: black;
+}
+
+    .detail-cta:hover {
+        font-weight: bold;
+    }
+
+.card-tag {
+    font-size: 1.2rem;
+    padding: .3rem 2rem;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    font-size: 1rem;
+    margin: 1rem 0 1rem 0;
+    word-break: break-all;
+}
+
+.todo-actions {
+    margin-top: auto;
+}
+
+.card-actions i {
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: .3rem;
+}
+
+/* automatic generated htmls*/
+.row{
+    justify-content: center;
+}
+
+.header-center {
+    text-align: center;
+    color:white;
+    margin: 2em;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 30px; 
+}
+
+.back-cta {
+    text-align: center;
+    background: white;
+    color: var(--secondary-color);
+    padding: .3em .5em;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: .4em;
+    width: 80px;
+    margin: auto;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--secondary-color);
+    padding: .3em .5em;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: .4em;
+    border:none;
+}
+.btn-primary:hover{
+    color:black;
+    background-color: white;
 }
