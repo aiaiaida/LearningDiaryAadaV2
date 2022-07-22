@@ -32,7 +32,8 @@
         <section class="cards-container" data-cards>
             @foreach (var item in Model)
              {
-                <div class="card" style="border-color:#84ADA6;">
+            <div class="card" style="border-color:#84ADA6;">
+                <a class="detail-cta" asp-area="" asp-controller="Topics" asp-action="Details" asp-route-id="@item.Id">
                     <div class="card-tag" style="background-color: #84ADA6; color: black;">
                         @Html.DisplayFor(modelItem => item.Title)
                     </div>
@@ -40,11 +41,12 @@
                     <p class="card-description">
                         @Html.DisplayFor(modelItem => item.Description)
                     </p>
-                    <div class="card-actions">
-                        <a asp-area="" asp-controller="Topics" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
-                        <a asp-area="" asp-controller="Topics" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
-                    </div>
+                </a>
+                <div class="card-actions">
+                    <a asp-area="" asp-controller="Topics" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
+                    <a asp-area="" asp-controller="Topics" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
                 </div>
+            </div>
                 
              }
             </section>

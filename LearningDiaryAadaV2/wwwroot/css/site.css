@@ -374,3 +374,40 @@ a:hover {
     color:black;
     background-color: white;
 }
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+.center-block dt{
+    padding-left:25em;
+    margin-top:.4em;
+    padding-top:.5em;
+}
+
+.center-block dd{
+    padding-top:1em;
+    padding-left:5em;
+}
+
+.edit-back{
+    margin-top:3em;
+    margin-left:30em;
+}
+
+    .edit-back a {
+        text-align: center;
+        background-color:white;
+        color: var(--secondary-color);
+        padding: .5em .5em;
+        font-size: 1.3em;
+        font-weight: bold;
+        border-radius: .4em;
+        width: 80px;
+        margin: auto;
+    }
+#back-delete{
+    background:none;
+    color:white;
+}
