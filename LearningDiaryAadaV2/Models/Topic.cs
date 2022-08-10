@@ -11,11 +11,6 @@ namespace LearningDiaryAadaV2.Models
 {
     public partial class Topic
     {
-        public Topic()
-        {
-            Notes = new HashSet<Note>();
-            TaskInTopics = new HashSet<TaskInTopic>();
-        }
 
         public int Id { get; set; }
         [Display(Name = "Title")]
@@ -24,7 +19,7 @@ namespace LearningDiaryAadaV2.Models
         [Display(Name = "Description")]
         [DisplayFormat(NullDisplayText = "Not set")]
         public string Description { get; set; }
-        [Display(Name = "Estimated time to master")]
+        [Display(Name = "Estimated master time")]
         [DisplayFormat(NullDisplayText = "Not set")]
         public int? EstimatedTimeToMaster { get; set; }
         [Display(Name = "Time spent")]

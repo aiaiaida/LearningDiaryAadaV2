@@ -35,6 +35,10 @@ namespace LearningDiaryAadaV2.Controllers
 
             var topic = await _context.Topic
                 .FirstOrDefaultAsync(m => m.Id == id);
+            var tasks = _context.TaskInTopic.Where(t => t.TopicId == id).ToList();
+            topic.TaskInTopics = tasks;
+            var notes = _context.Note.Where(t => t.TopicId == id).ToList();
+            topic.Notes = notes;
             if (topic == null)
             {
                 return NotFound();
@@ -73,7 +77,12 @@ namespace LearningDiaryAadaV2.Controllers
                 return NotFound();
             }
 
-            var topic = await _context.Topic.FindAsync(id);
+            var topic = await _context.Topic
+                .FirstOrDefaultAsync(m => m.Id == id);
+            var tasks = _context.TaskInTopic.Where(t => t.TopicId == id).ToList();
+            topic.TaskInTopics = tasks;
+            var notes = _context.Note.Where(t => t.TopicId == id).ToList();
+            topic.Notes = notes;
             if (topic == null)
             {
                 return NotFound();
@@ -140,6 +149,10 @@ namespace LearningDiaryAadaV2.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var topic = await _context.Topic.FindAsync(id);
+            var task = _context.TaskInTopic.Where(task => task.TopicId == id);
+            var note = _context.Note.Where(note => note.TopicId == id);
+            _context.Note.RemoveRange(note);
+            _context.TaskInTopic.RemoveRange(task);
             _context.Topic.Remove(topic);
             await _context.SaveChangesAsync();
             return RedirectToAction("GetStarted", "App");

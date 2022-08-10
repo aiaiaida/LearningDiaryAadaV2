@@ -5,64 +5,148 @@
 }
 <div class="header-center">
     <h1>Details</h1>
-    <h4>Topic</h4>
 </div>
 
-
-<div class="center-block">
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.EstimatedTimeToMaster)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.EstimatedTimeToMaster)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.TimeSpent)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.TimeSpent)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Source)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Source)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.StartLearningDate)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.StartLearningDate)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.InProgress)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.InProgress)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.CompletionDate)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.CompletionDate)
-        </dd>
-    </dl>
-</div>
 <div class="edit-back">
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-area="" asp-controller="App" asp-action="GetStarted">Back</a>
 </div>
+
+<section class="cards-container" data-cards>
+    <div class="card" style="border-color:#84ADA6;">
+        <div class="card-tag" style="background-color: #84ADA6; color: black;">
+            Topic
+        </div>
+        <div class="card-description">
+            <table>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Id): </td>
+                    <td>@Html.DisplayFor(model => model.Id)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Title): </td>
+                    <td>@Html.DisplayFor(model => model.Title)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Description): </td>
+                    <td>@Html.DisplayFor(model => model.Description)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.EstimatedTimeToMaster): </td>
+                    <td>@Html.DisplayFor(model => model.EstimatedTimeToMaster)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.TimeSpent): </td>
+                    <td>@Html.DisplayFor(model => model.TimeSpent)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Source): </td>
+                    <td>@Html.DisplayFor(model => model.Source)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.StartLearningDate): </td>
+                    <td>@Html.DisplayFor(model => model.StartLearningDate)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.InProgress): </td>
+                    <td>@Html.DisplayFor(model => model.InProgress)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.CompletionDate): </td>
+                    <td>@Html.DisplayFor(model => model.CompletionDate)</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="card-actions">
+            <a asp-area="" asp-controller="Topics" asp-action="Edit" asp-route-id="@Model.Id"><i class="far fa-edit"></i></a>
+            <a asp-area="" asp-controller="Topics" asp-action="Delete" asp-route-id="@Model.Id"><i class="far fa-trash-alt"></i></a>
+        </div>
+    </div>
+
+    @foreach (var item in Model.TaskInTopics)
+    {
+        <div class="card" style="border-color:#84ADA6; margin-top:2em;">
+            <a class="detail-cta" asp-area="" asp-controller="TaskInTopics" asp-action="Details" asp-route-id="@item.Id">
+                <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                    Task
+                </div>
+                <p class="card-description">
+                    <table>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Id): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Id) </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.TopicId): </td>
+                            <td>@Html.DisplayFor(modelItem => item.TopicId)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Title): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Description): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Deadline): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Deadline)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Priority): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Priority)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Done): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Done)</td>
+                        </tr>
+                    </table>
+                </p>
+            </a>
+            <div class="card-actions">
+                <a asp-area="" asp-controller="TaskInTopics" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
+                <a asp-area="" asp-controller="TaskInTopics" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+
+    }
+
+    @foreach (var item in Model.Notes)
+    {
+        <div class="card" style="border-color:#84ADA6; margin-top:4em;">
+            <a class="detail-cta" asp-area="" asp-controller="TaskInTopics" asp-action="Details" asp-route-id="@item.Id">
+                <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                    Note
+                </div>
+                <p class="card-description">
+                    <table>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Id): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Id) </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.TopicId): </td>
+                            <td>@Html.DisplayFor(modelItem => item.TopicId)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.TaskId): </td>
+                            <td>@Html.DisplayFor(modelItem => item.TaskId)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(modelItem => item.Note1): </td>
+                            <td>@Html.DisplayFor(modelItem => item.Note1)</td>
+                        </tr>
+                    </table>
+                </p>
+            </a>
+            <div class="card-actions">
+                <a asp-area="" asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
+                <a asp-area="" asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+
+    }
+
+</section>
+
+

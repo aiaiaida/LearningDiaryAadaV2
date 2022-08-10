@@ -87,7 +87,9 @@ body {
     background: var(--primary-color);
     margin: 0;
 }
-
+.create-cta{
+    margin-left:1.5em;
+}
 .navbar {
     padding: 0.5em;
     background-color: white;
@@ -350,6 +352,13 @@ a:hover {
     margin: 2em;
 }
 
+.header-card {
+    color: var(--primary-color);
+    margin-left: 8em;
+    padding-top:1em;
+    font-weight:bolder;
+}
+
 .footer {
     bottom: 0;
     width: 100%;
@@ -387,20 +396,19 @@ h1{
     text-align: center;
 }
 
+.center-block{
+    margin-left:5em;
+}
+
 .center-block dt{
-    padding-left:25em;
-    margin-top:.4em;
-    padding-top:.5em;
+    text-align:left;
 }
+    .center-block dd {
+        text-align: left;
+    }
 
-.center-block dd{
-    padding-top:1em;
-    padding-left:5em;
-}
-
-.edit-back{
-    margin-top:3em;
-    margin-left:30em;
+.edit-back {
+    display:flex;
 }
 
     .edit-back a {
@@ -426,4 +434,17 @@ form input:hover {
 
 .hide {
     display: none;
+}
+
+/*card in detail view*/
+
+#detail-card {
+    background-color:honeydew;
+    padding-bottom:1em;
+    margin-bottom:1em;
+}
+
+dl.row {
+    margin-left: 3em;
+    margin-top:3em;
 }

@@ -147,6 +147,8 @@ namespace LearningDiaryAadaV2.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var taskInTopic = await _context.TaskInTopic.FindAsync(id);
+            var note = _context.Note.Where(note => note.TaskId == id);
+            _context.Note.RemoveRange(note);
             _context.TaskInTopic.Remove(taskInTopic);
             await _context.SaveChangesAsync();
             return RedirectToAction("TaskView", "App");

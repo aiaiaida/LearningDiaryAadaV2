@@ -28,25 +28,27 @@
         </header>
 
         <!--cards-->
-
+        <div>
+            <a class="create-cta" asp-area="" asp-controller="Notes" asp-action="Create" id="create-ctn">Create new</a>
+        </div>
         <section class="cards-container" data-cards>
             @foreach (var item in Model)
             {
-            <div class="card" style="border-color:#84ADA6;">
-                <a class="detail-cta" asp-area="" asp-controller="Notes" asp-action="Details" asp-route-id="@item.Id">
-                    <div class="card-tag" style="background-color: #84ADA6; color: black;">
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </div>
+                <div class="card" style="border-color:#84ADA6;">
+                    <a class="detail-cta" asp-area="" asp-controller="Notes" asp-action="Details" asp-route-id="@item.Id">
+                        <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </div>
 
-                    <p class="card-description">
-                        @Html.DisplayFor(modelItem => item.Note1)
-                    </p>
-                </a>
-                <div class="card-actions">
-                    <a asp-area="" asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
-                    <a asp-area="" asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
+                        <p class="card-description">
+                            @Html.DisplayFor(modelItem => item.Note1)
+                        </p>
+                    </a>
+                    <div class="card-actions">
+                        <a asp-area="" asp-controller="Notes" asp-action="Edit" asp-route-id="@item.Id"><i class="far fa-edit"></i></a>
+                        <a asp-area="" asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
+                    </div>
                 </div>
-            </div>
 
             }
         </section>

@@ -10,10 +10,6 @@ namespace LearningDiaryAadaV2.Models
 {
     public partial class TaskInTopic
     {
-        public TaskInTopic()
-        {
-            Notes = new HashSet<Note>();
-        }
 
         public int Id { get; set; }
         public int? TopicId { get; set; }

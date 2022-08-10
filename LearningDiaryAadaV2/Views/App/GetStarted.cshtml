@@ -28,7 +28,9 @@
         </header>
 
         <!--cards-->
-
+        <div>
+            <a class="create-cta" asp-area="" asp-controller="Topics" asp-action="Create" id="create-ctn">Create new</a>
+        </div>
         <section class="cards-container" data-cards>
             @foreach (var item in Model)
              {
