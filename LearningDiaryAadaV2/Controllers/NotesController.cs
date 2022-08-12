@@ -65,7 +65,7 @@ namespace LearningDiaryAadaV2.Controllers
             {
                 _context.Add(note);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Notes", new { @id = note.Id });
             }
             ViewData["TaskId"] = new SelectList(_context.TaskInTopic, "Id", "Id", note.TaskId);
             ViewData["TopicId"] = new SelectList(_context.Topic, "Id", "Id", note.TopicId);

@@ -37,6 +37,8 @@ namespace LearningDiaryAadaV2.Controllers
             var taskInTopic = await _context.TaskInTopic
                 .Include(t => t.Topic)
                 .FirstOrDefaultAsync(m => m.Id == id);
+            var notes = _context.Note.Where(t => t.TopicId == id).ToList();
+            taskInTopic.Notes = notes;
             if (taskInTopic == null)
             {
                 return NotFound();
@@ -63,7 +65,7 @@ namespace LearningDiaryAadaV2.Controllers
             {
                 _context.Add(taskInTopic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "TaskInTopics", new { @id = taskInTopic.Id});
             }
             ViewData["TopicId"] = new SelectList(_context.Topic, "Id", "Id", taskInTopic.TopicId);
             return View(taskInTopic);

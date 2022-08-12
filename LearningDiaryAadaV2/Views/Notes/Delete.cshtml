@@ -9,32 +9,42 @@
     <h3>Are you sure you want to delete this?</h3>
 </div>
 
-<div class="center-block">
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Note1)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Note1)
-        </dd>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Task)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Task.Id)
-        </dd class>
-        <dt class = "col-sm-6">
-            @Html.DisplayNameFor(model => model.Topic)
-        </dt>
-        <dd class = "col-sm-6">
-            @Html.DisplayFor(model => model.Topic.Id)
-        </dd class>
-    </dl>
-    
-    <form asp-action="Delete" class="edit-back">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-area="" asp-controller="App" asp-action="NoteView" id="back-delete">Back</a>
-    </form>
+<div class="edit-back">
+    <a asp-area="" asp-controller="App" asp-action="NoteView">Back</a>
 </div>
+
+<section class="cards-container" data-cards>
+    <div class="card" style="border-color:#84ADA6;">
+        <a class="detail-cta" asp-area="" asp-controller="Notes" asp-action="Details" asp-route-id="@Model.Id">
+            <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                Note
+            </div>
+            <p class="card-description">
+                <table>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Id): </td>
+                        <td>@Html.DisplayFor(model => model.Id) </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.TopicId): </td>
+                        <td>@Html.DisplayFor(model => model.TopicId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.TaskId): </td>
+                        <td>@Html.DisplayFor(model => model.TaskId)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Note1): </td>
+                        <td>@Html.DisplayFor(model => model.Note1)</td>
+                    </tr>
+                </table>
+            </p>
+        </a>
+
+    </div>
+</section>
+<form asp-action="Delete" class="edit-back">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+</form>
+

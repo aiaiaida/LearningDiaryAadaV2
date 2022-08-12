@@ -4,5 +4,11 @@
 // Write your JavaScript code.
 function showManual() {
     var el = document.getElementById('manual');
-    el.classList.remove('hide');
+    if (el.classList.contains('hide')) {
+        el.classList.remove('hide');
+    }
+    else {
+        el.classList.add('hide')
+    }
+    
 }

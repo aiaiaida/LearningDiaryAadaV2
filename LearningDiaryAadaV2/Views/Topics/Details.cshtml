@@ -108,13 +108,23 @@
                 <a asp-area="" asp-controller="TaskInTopics" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
             </div>
         </div>
-
     }
+    <div class="card" style="border-color:#84ADA6;" width="800px" margin-top="2em" ;>
+        <a class="detail-cta" asp-area="" asp-controller="TaskInTopics" asp-action="Create">
+            <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                Add new task
+            </div>
+            <p class="card-description">
+                Add a new task by clicking on it
+                <img src="~/Content/Images/addNew.png" />
+            </p>
+        </a>
+    </div>
 
     @foreach (var item in Model.Notes)
     {
         <div class="card" style="border-color:#84ADA6; margin-top:4em;">
-            <a class="detail-cta" asp-area="" asp-controller="TaskInTopics" asp-action="Details" asp-route-id="@item.Id">
+            <a class="detail-cta" asp-area="" asp-controller="Notes" asp-action="Details" asp-route-id="@item.Id">
                 <div class="card-tag" style="background-color: #84ADA6; color: black;">
                     Note
                 </div>
@@ -144,8 +154,18 @@
                 <a asp-area="" asp-controller="Notes" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></a>
             </div>
         </div>
-
     }
+    <div class="card" style="border-color:#84ADA6;" width="800px" margin-top="4em" ;>
+        <a class="detail-cta" asp-area="" asp-controller="Notes" asp-action="Create">
+            <div class="card-tag" style="background-color: #84ADA6; color: black;">
+                Add new note
+            </div>
+            <p class="card-description">
+                Add a new note by clicking on it
+                <img src="~/Content/Images/addNew.png" />
+            </p>
+        </a>
+    </div>
 
 </section>
 
